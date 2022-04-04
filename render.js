@@ -5,7 +5,7 @@ const DAYS_AGO_TO_LABEL = {
 };
 
 const ZOOM_START = 7;
-const ZOOM_ITEM = 15;
+const ZOOM_ITEM = 9;
 
 export function renderTimeSelectors(selectedDaysAgo) {
   const renderdInner = [1, 7, 0]
