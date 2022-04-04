@@ -1,12 +1,12 @@
 import { getProtestData, renderProtestsSource } from "./protests.js";
 import { renderMap, renderMapItem, renderTimeSelectors } from "./render.js";
+const DEFAULT_DAYS_AGO = 7;
 
 function updateProgress(message) {
   document.getElementById("p-progress").innerHTML = message;
 }
 
 function getDaysAgo() {
-  const DEFAULT_DAYS_AGO = 1;
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   if (!urlParams.has("t")) {
