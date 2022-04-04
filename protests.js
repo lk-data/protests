@@ -1,7 +1,15 @@
 const GSS_ID = "1yShvemHd_eNNAtC3pmxPs9B5RbGmfBUP1O6WGQ5Ycrg";
-const GSS_URL = "https://docs.google.com/spreadsheets/d/"
-  + `${GSS_ID}`;
-const GSS_URL_EXPORT = GSS_URL + '/export?format=csv'
+const GSS_URL = "https://docs.google.com/spreadsheets/d/" + `${GSS_ID}`;
+const GSS_URL_EXPORT = GSS_URL + "/export?format=csv";
+
+const FIELD = {
+  LOCATION: "Location",
+  DATE: "Date",
+  LAT_LNG: "LatLng (approx)",
+  FOOTAGE: "Footage (links, add multiple if possible)",
+  SIZE: "Size assessment (small-medium-large-XL, large being Mirihana)",
+  STATUS: "Incomplete Details",
+};
 
 export function renderProtestsSource() {
   document.getElementById("div-source").innerHTML = `
@@ -14,29 +22,26 @@ export function renderProtestsSource() {
   `;
 }
 
-
 function mapRawData(d) {
-  const location = d["Location"];
-  const latLngTokens = d["LatLng (approx)"].split(",");
+  console.debug(d);
+  const location = d[FIELD.LOCATION];
+  const latLngTokens = d[FIELD.LAT_LNG].split(",");
 
   var latLng = null;
   if (latLngTokens.length === 2) {
-      latLng = latLngTokens.map((x) => parseFloat(x));
+    latLng = latLngTokens.map((x) => parseFloat(x));
   }
 
-  const [dStr, mStr, yStr] = d["Date"].split("/");
+  const [dStr, mStr, yStr] = d[FIELD.DATE].split("/");
   const date = new Date(parseInt(yStr), parseInt(mStr) - 1, parseInt(dStr));
 
   return {
     location,
     latLng,
     date,
-    links: d["Footage (links, add multiple if possible)"],
-    size: parseInt(d["Size assessment (small-medium-large)"]),
-    contributor:
-      d[
-        "Contributor name, add yours if you add something (twitter handles work)"
-      ],
+    links: d[FIELD.FOOTAGE],
+    size: parseInt(d[FIELD.SIZE]),
+    status: d[FIELD.STATUS],
   };
 }
 
