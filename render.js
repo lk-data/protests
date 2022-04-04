@@ -26,7 +26,7 @@ export function renderTimeSelectors(selectedDaysAgo) {
     .join("\n");
 
   document.getElementById("div-time").innerHTML = `
-    In the 
+    In the
     ${renderdInner}
   `;
 }
@@ -75,7 +75,7 @@ export function renderMapItem(map, data) {
       <h3 class="h3-event-location">${data.location}</h3>
       <p>Size: ${sizeInfo}</h3>
       <div>${renderLinks(data.links)}</div>
-      <p>Contributed by <strong>${data.contributor}</strong></p>
+      <p><strong>${data.status}</strong></p>
     </div>
   `);
   circleMarker.addTo(map);
