@@ -25,7 +25,6 @@ export function renderProtestsSource() {
 }
 
 function mapRawData(d) {
-  console.debug(d);
   const location = d[FIELD.LOCATION];
   const latLngTokens = d[FIELD.LAT_LNG].split(",");
 
