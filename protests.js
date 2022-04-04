@@ -17,7 +17,12 @@ export function renderProtestsSource() {
 
 function mapRawData(d) {
   const location = d["Location"];
-  const latLng = d["LatLng"].split(",").map((x) => parseFloat(x));
+  const latLngTokens = d["LatLng (approx)"].split(",");
+
+  var latLng = null;
+  if (latLngTokens.length === 2) {
+      latLng = latLngTokens.map((x) => parseFloat(x));
+  }
 
   const [dStr, mStr, yStr] = d["Date"].split("/");
   const date = new Date(parseInt(yStr), parseInt(mStr) - 1, parseInt(dStr));
