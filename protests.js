@@ -7,8 +7,10 @@ const FIELD = {
   DATE: "Date",
   LAT_LNG: "LatLng (approx)",
   FOOTAGE: "Footage (links, add multiple if possible)",
+  STATUS: "Status",
+  // Not used as yet
   SIZE: "Size assessment (small-medium-large-XL, large being Mirihana)",
-  STATUS: "Incomplete Details",
+
 };
 
 export function renderProtestsSource() {
