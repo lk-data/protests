@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <title>Protests happening in #LKA</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open Sans"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="div-info">
+      <div id="div-source"></div>
+      <h2 class="h1-title">Protests happening in #LKA</h2>
+      <div id="div-time"></div>
+      <p id="p-progress"></p>
+      <p class="p-warning">
+          *This data is unverified and might be inaccurate.
+          Please intepret with care
+      </p>
+    </div>
+
+    <div id="div-map"></div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="./index.js" type="module"></script>
+    <script src="./protests.js" type="module"></script>
+    <script src="./render.js" type="module"></script>
+  </body>
+</html>
