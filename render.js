@@ -72,8 +72,7 @@ export function renderMapItem(map, data) {
   circleMarker.bindPopup(`
     <div class="div-event">
       <p class="p-event-date"><time>${dateStr}</time></p>
-      <h3 class="h3-event-location">${data.location}</h3>
-      <p>Size: ${sizeInfo}</h3>
+      <h2 class="h3-event-location">${data.location}</h2>
       <div>${renderLinks(data.links)}</div>
       <p><strong>${data.status}</strong></p>
     </div>
